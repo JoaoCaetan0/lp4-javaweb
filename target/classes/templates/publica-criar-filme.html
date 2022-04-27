@@ -20,6 +20,7 @@
 </head>
 <body>
 <div th:insert="fragments/publica-nav :: nav"></div>
+<br>
 <div class="container">
   <div class="row">  	
     <div class="col">
@@ -31,7 +32,7 @@
 		<form action="#" th:action="@{/filme/salvar}" th:object="${filme}" method="post">
 			  
 			<div class="row mb-3">
-			    <label class="col-sm-1 col-form-label">Nome:</label>
+			    <label class="col-sm-2 col-form-label">Nome:</label>
 			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{nome}"> 
 			    </div>
@@ -41,8 +42,8 @@
 			</div>
 			
 			<div class="row mb-3">
-			    <label class="col-sm-1 col-form-label">Pontuacao:</label>
-			    <div class="col-sm-3">
+			    <label class="col-sm-2 col-form-label">Pontuacao:</label>
+			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{pontuacaoCritica}"> 
 			    </div>
 				<div class="col-sm-5"> 
@@ -52,8 +53,8 @@
 			
 			
 			<div class="row mb-3">
-			    <label class="col-sm-1 col-form-label">Lançamento:</label>
-			    <div class="col-sm-2">
+			    <label class="col-sm-2 col-form-label">Lançamento:</label>
+			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{dataLancamento}"> 
 			    </div>
 				<div class="col-sm-5"> 
@@ -63,8 +64,8 @@
 			
 			
 			<div class="row mb-3">
-			    <label class="col-sm-1 col-form-label">Duração:</label>
-			    <div class="col-sm-2">
+			    <label class="col-sm-2 col-form-label">Duração:</label>
+			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{duracaoFilme}"> 
 			    </div>
 				<div class="col-sm-5"> 
@@ -73,8 +74,8 @@
 			</div>
 			
 			<div class="row mb-3">
-			    <label class="col-sm-1 col-form-label">Capa:</label>
-			    <div class="col-sm-2">
+			    <label class="col-sm-2 col-form-label">Capa:</label>
+			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{linkImg}"> 
 			    </div>
 				<div class="col-sm-5"> 

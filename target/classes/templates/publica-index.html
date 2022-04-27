@@ -12,30 +12,40 @@
 
 </head>
 <body>
+<content>
+<header>
 <div th:insert="fragments/publica-nav :: nav"></div>
-
-
-
-</div>
-
-	<div class="container">
-		<div class="row">
-			<div class="col">
-			<div align= "center">
-					<img id= "logo" src ="../assets/images/logo.png">
-</div>
-				<h1 align="center" th:text="${msnBemVindo}"></h1>
-				<content>
-				
-				<div class = "botoes" align = "center">
-				<a class="btn btn-outline-success" href="/usuario/novo">Novo usuário</a>
-				<a class="btn btn-outline-success" href="/filme/novo">Novo filme</a>
-				</div>
-				
-				
-				
+</header>
+	
+<div id = "fundinho">
+	<img id= "fundinho-img" th:src ="@{/assets/images/fundo-cinema.png}">
+	</div>
+	<div style= "display: flex;
+	flex-direction: column;
+	align-items: center;">
+		<div id= "fundinho-filho">
+			<img id= "logo" th:src ="@{/assets/images/logo.png}">
+			<h1 align="center" th:text="${msnBemVindo}"></h1>
+		</div></div>
+		<div class = "botoes" align = "center">
+		<br>
+		<p>Bem-Vindo ao cinema mais original desses mares!</p>
+		<br>
+		<h1 align= "center"> Filmes em cartaz</h1>
+		<br>
+		<div id = "cover-container">
+			<img id = "cover" th:src ="@{/assets/images/cover-avengers.jpg}">
+			<img id = "cover" th:src ="@{/assets/images/cover-minhamae.jpg}">
+			<img id = "cover" th:src ="@{/assets/images/cover-venom.jpeg}">
+			<img id = "cover" th:src ="@{/assets/images/cover-dora.jpg}">
+			<img id = "cover" th:src ="@{/assets/images/cover-pokemon.jpg}">
 			</div>
+		<br>
+		<a class="btn btn-outline-success" href="/usuario/novo">Novo usuário</a>
+		<a class="btn btn-outline-success" href="/filme/novo">Novo filme</a>
 		</div>
-	</div>	
+				
+				
+				
 	</content>
 </body>

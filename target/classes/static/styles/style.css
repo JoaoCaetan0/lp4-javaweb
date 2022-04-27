@@ -18,15 +18,27 @@ body {
 	display: flex;
 	flex-direction: column;
 }
-h1, h2 {
-	font-weight: bold;
-	font-family: "Poppins", sans-serif;
-	color:white;
+
+header{
+	position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: 10;
+   box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.5);
+
 }
 
+h1, h2, th, td, span, label {
+	font-weight: bold !important;
+	font-family: "Poppins", sans-serif !important;
+	color:white !important;
+}
+
+
 p {
-	font-family: "Montserrat", sans-serif;
-	color: white;
+	font-family: "Montserrat", sans-serif !important;
+	color: white !important;
 }
 
 .botoes {
@@ -34,6 +46,52 @@ p {
 }
 
 #logo {
-	width: 500px;
-	height: 325px;
+	display: block;
+	width: 240px;
+	height: 135px;
+}
+
+#fundinho {
+	z-index: 9;
+   	padding-top: 57px;
+	position: relative;	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	top:0px; 
+	left:0px;
+
+	
+}
+#fundinho-filho{
+	z-index: 12;
+	top: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+}
+
+#fundinho-img{
+	width: 100%;
+	height: 250px;
+	opacity: 0.4 ;
+}
+
+.container {
+	font-weight: bold !important;
+	font-family: "Poppins", sans-serif !important;
+	color:white !important;
+}
+
+
+#cover-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#cover {
+	height: 200px; 
+	width: 180px;
+	margin: auto;
 }

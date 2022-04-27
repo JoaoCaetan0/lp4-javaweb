@@ -19,6 +19,7 @@
 </head>
 <body>
 <div th:insert="fragments/publica-nav :: nav"></div>
+<br>
 <div class="container">
   <div class="row">  	
     <div class="col">
@@ -26,7 +27,7 @@
 		<form th:action="@{/usuario/editar/{id}(id=${usuario.id})}" th:object="${usuario}" method="post">
 			  
 			<div class="row mb-3">
-			    <label class="col-sm-1 col-form-label">Nome:</label>
+			    <label class="col-sm-2 col-form-label">Nome:</label>
 			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{nome}"> 
 			    </div>
@@ -36,8 +37,8 @@
 			</div>
 			
 			<div class="row mb-3">
-			    <label class="col-sm-1 col-form-label">CPF:</label>
-			    <div class="col-sm-3">
+			    <label class="col-sm-2 col-form-label">CPF:</label>
+			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{cpf}"> 
 			    </div>
 				<div class="col-sm-5"> 
@@ -47,8 +48,8 @@
 			
 			
 			<div class="row mb-3">
-			    <label class="col-sm-1 col-form-label">Nascimento:</label>
-			    <div class="col-sm-2">
+			    <label class="col-sm-2 col-form-label">Nascimento:</label>
+			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{dataNascimento}"> 
 			    </div>
 				<div class="col-sm-5"> 
@@ -58,8 +59,8 @@
 			
 			
 			<div class="row mb-3">
-			    <label class="col-sm-1 col-form-label">Email:</label>
-			    <div class="col-sm-2">
+			    <label class="col-sm-2 col-form-label">Email:</label>
+			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{email}"> 
 			    </div>
 				<div class="col-sm-5"> 
@@ -68,8 +69,8 @@
 			</div>			
 			
 			<div class="row mb-3">
-			    <label class="col-sm-1 col-form-label">Login:</label>
-			    <div class="col-sm-2">
+			    <label class="col-sm-2 col-form-label">Login:</label>
+			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{login}"> 
 			    </div>
 				<div class="col-sm-5"> 
@@ -78,8 +79,8 @@
 			</div>
 			
 			<div class="row mb-3">
-			    <label class="col-sm-1 col-form-label">Senha:</label>
-			    <div class="col-sm-2">
+			    <label class="col-sm-2 col-form-label">Senha:</label>
+			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{password}"> 
 			    </div>
 				<div class="col-sm-5"> 
