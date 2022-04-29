@@ -43,8 +43,9 @@ p {
 }
 
 .botoes {
+	z-index: 12;
 	align-content: center;
-	margin: -180px;
+	margin-top: -390px;
 }
 
 #logo {
@@ -59,7 +60,7 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	top:-200px; 
+	top:-400px; 
 	left:0px;
 
 	
@@ -76,8 +77,8 @@ p {
 #fundinho-img{
 	top: 100px;
 	width: 100%;
-	height: 650px;
-	opacity: 0.6 ;
+	height: 750px;
+	opacity: 0.65 ;
 }
 
 .container {
