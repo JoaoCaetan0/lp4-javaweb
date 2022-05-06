@@ -99,6 +99,16 @@ public class Filme {
 		this.pontuacaoCritica = pontuacaoCritica;
 		this.linkImg = linkImg;
 	}
+	public Filme(Filme filme) {
+		super();
+		this.nome = filme.getNome();
+		this.duracaoFilme = filme.getDuracaoFilme();
+		this.dataLancamento = filme.getDataLancamento();
+		this.pontuacaoCritica = filme.getPontuacaoCritica();
+		this.linkImg = filme.getLinkImg();
+		
+		
+	}
 	
 	public Filme() {
 		
