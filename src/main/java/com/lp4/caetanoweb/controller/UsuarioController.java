@@ -1,5 +1,7 @@
 package com.lp4.caetanoweb.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -16,6 +18,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.lp4.caetanoweb.orm.Usuario;
 import com.lp4.caetanoweb.repositorio.UsuarioRepository;
+import com.lp4.caetanoweb.orm.Papel;
+import com.lp4.caetanoweb.repositorio.PapelRepository;
 
 @Controller
 @RequestMapping("/usuario")
@@ -24,6 +28,9 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	@Autowired
+	private PapelRepository papelRepository;
+	
 	@GetMapping("/novo")
 	public String adicionarUsuario(Model model) {
 		model.addAttribute("usuario", new Usuario());
@@ -31,11 +38,23 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvarUsuario(@Valid Usuario usuario, BindingResult result, 
+	public String salvarUsuario(@Valid Usuario usuario, BindingResult result, Model model, 
 				RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			return "/publica-criar-usuario";
 		}	
+		
+		Usuario usr = usuarioRepository.findByLogin(usuario.getLogin());
+		if (usr != null) {
+			model.addAttribute("loginExiste", "Login já existente");
+			return "/publica-criar-usuario";
+		}
+		
+		Papel papel = papelRepository.findByPapel("USER");
+		List<Papel> papeis = new ArrayList<Papel>();
+		papeis.add(papel);
+		usuario.setPapeis(papeis);
+		
 		usuarioRepository.save(usuario);
 		attributes.addFlashAttribute("mensagem", "Usuário salvo com sucesso!");
 		return "redirect:/usuario/novo";
