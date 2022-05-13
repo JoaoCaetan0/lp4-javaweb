@@ -35,6 +35,7 @@ th {text-align: center;vertical-align: middle;}
 				<th>E-mail</th>
 				<th>Apagar</th>
 			    <th>Editar</th>
+			    <th>Papeis</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -58,6 +59,11 @@ th {text-align: center;vertical-align: middle;}
 					<a class="btn btn-outline-primary btn-sm" 
 					   th:href="@{/usuario/editar/{id}(id=${usuario.id})}">
 					   Editar</a>
+				</td>
+				<td>
+					<a class="btn btn-outline-light btn-sm" 
+					   th:href="@{/usuario/editarPapel/{id}(id=${usuario.id})}">
+					   Papeis</a>
 				</td>
 			</tr>
 			

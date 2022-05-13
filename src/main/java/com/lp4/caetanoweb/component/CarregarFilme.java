@@ -34,7 +34,7 @@ public class CarregarFilme implements CommandLineRunner {
 				"https://upload.wikimedia.org/wikipedia/pt/d/da/Minha_M%C3%A3e_%C3%A9_uma_Pe%C3%A7a.jpg");
 
 		data = sdf.parse("28/01/2017");
-		Filme filme4 = new Filme("Minha Mãe é uma Peça", "10h", data, "0",
+		Filme filme4 = new Filme("Dora Aventureira", "10h", data, "0",
 				"https://br.web.img3.acsta.net/c_310_420/pictures/19/07/11/20/16/2463436.jpg");
 
 		Filme[] filmes = { filme1, filme2, filme3, filme4 };
