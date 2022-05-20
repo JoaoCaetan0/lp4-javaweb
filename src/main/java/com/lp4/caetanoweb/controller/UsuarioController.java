@@ -134,6 +134,8 @@ public class UsuarioController {
 			if (usuarioOptional.isPresent()) {
 				Usuario usr = usuarioOptional.get();
 				usr.setPapeis(papeis); // relaciona papéis ao usuário
+				
+				usr.setAtivo(usuario.isAtivo());// usa o usuário passado como parâmetro para alterar a instância de usuário no banco.		
 				usuarioRepository.save(usr);
 	        }			
 		}		
