@@ -33,6 +33,8 @@ th {text-align: center;vertical-align: middle;}
 				<th>CPF</th>
 				<th>Nascimento</th>
 				<th>E-mail</th>
+				<th> </th>
+				<th> </th>
 				<th>Apagar</th>
 			    <th>Editar</th>
 			    <th>Papeis</th>
@@ -47,6 +49,11 @@ th {text-align: center;vertical-align: middle;}
 				<td><span th:text="${usuario.cpf}"> Cpf </span></td>
 				<td><span th:text="${#dates.format(usuario.dataNascimento, 'dd/MM/yyyy')}"> Nascimento </span></td>
 				<td><span th:text="${usuario.email}"> E-mail </span></td>
+				<td><span th:text="${usuario.ativo ? 'ATIVO' : 'INATIVO'}"></span></td>
+				
+				<td><th:block th:each="pp : ${usuario.papeis}"> 
+					<span th:text= "${pp.papel}">Papel</span><br></td>
+				</th:block>
 				<td>
 					<a class="btn btn-outline-danger btn-sm" 
 					   th:href="@{/usuario/admin/apagar/{id}(id=${usuario.id})}"
