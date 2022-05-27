@@ -11,4 +11,8 @@ public class HomeController {
 			model.addAttribute("msnBemVindo", "PedroFlix");
 			return "index";
 		}
+		@RequestMapping("/login") 
+		public String login() {
+			return "login";
+		}
 }
