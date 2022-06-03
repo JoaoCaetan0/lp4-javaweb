@@ -24,7 +24,7 @@ public class LoginSucesso extends SavedRequestAwareAuthenticationSuccessHandler 
 	@Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
             Authentication authentication) throws ServletException, IOException {
-
+		System.out.println("Passou aqui (Início) !!");
 		// pega o login do usuário logado
 		String login = authentication.getName(); 
 		// busca o usuário no banco pelo login
@@ -37,7 +37,8 @@ public class LoginSucesso extends SavedRequestAwareAuthenticationSuccessHandler 
             redirectURL = "/auth/user/user-index";
         } else if (temAutorizacao(usuario, "GERENTE")) {
             redirectURL = "/auth/gerente/gerente-index";
-        }		
+        }
+		System.out.println("Passou aqui!!");
         response.sendRedirect(redirectURL);         
     }
 	/**

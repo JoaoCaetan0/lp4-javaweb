@@ -31,7 +31,7 @@ public class DetalheUsuarioServico implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		Usuario usuario = usuarioRepository.findByLogin(username);
-		
+		System.out.println("Buscou user name");
 		if(usuario != null && usuario.isAtivo()) {
 			Set<GrantedAuthority> papeisDoUsuario = new HashSet<GrantedAuthority>();
 			for(Papel papel: usuario.getPapeis()) {

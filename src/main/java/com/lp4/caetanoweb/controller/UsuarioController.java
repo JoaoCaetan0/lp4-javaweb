@@ -7,6 +7,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,11 +33,16 @@ public class UsuarioController {
 	@Autowired
 	private PapelRepository papelRepository;
 	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
+	
 	@GetMapping("/novo")
 	public String adicionarUsuario(Model model) {
 		model.addAttribute("usuario", new Usuario());
 		return "/publica-criar-usuario";
 	}
+	
+	
 	
 	@PostMapping("/salvar")
 	public String salvarUsuario(@Valid Usuario usuario, BindingResult result, Model model, 
@@ -55,6 +61,11 @@ public class UsuarioController {
 		List<Papel> papeis = new ArrayList<Papel>();
 		papeis.add(papel);
 		usuario.setPapeis(papeis);
+		
+		String senhaCriptografada = passwordEncoder.encode(usuario.getPassword());
+		usuario.setPassword(senhaCriptografada);
+		
+		
 		
 		usuarioRepository.save(usuario);
 		attributes.addFlashAttribute("mensagem", "Usuário salvo com sucesso!");
