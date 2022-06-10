@@ -1,4 +1,4 @@
-package com.lp4.caetanoweb;
+package com.lp4.caetanoweb.view;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

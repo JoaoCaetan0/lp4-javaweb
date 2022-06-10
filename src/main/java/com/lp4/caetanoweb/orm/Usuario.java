@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -12,9 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -23,6 +25,9 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
 
+//import com.lp4.caetanoweb.orm.Endereco;
+import com.lp4.caetanoweb.orm.Papel;
+
 @Entity
 public class Usuario {
 	@Id
@@ -30,10 +35,10 @@ public class Usuario {
 	private Long id;
 	
 	@NotNull
-	@Size(min = 3, message = "O nome deve ter no mínimo 3 carateres")
+	@Size(min = 3, message = "{validation.nome.min}")
 	private String nome;
 	
-	@CPF(message = "CPF inválido")
+	@CPF(message = "{validation.cpf.valid}")
 	private String cpf; 
 	
 	@Basic
@@ -41,27 +46,29 @@ public class Usuario {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
 	
-	@Email(message = "Email inválido")
+	@Email(message = "{validation.email.valid}")
 	private String email;
 		
-	@NotEmpty(message = "A senha deve ser informada")
-	@Size(min = 3, message = "A senha deve ter no mínimo 3 caracteres")
+	@NotEmpty(message = "{validation.password.valid}")
+	@Size(min = 3, message = "{validation.password.min}")
 	private String password;	
 	
-	@NotEmpty(message = "O login deve ser informado")
-	@Size(min = 4, message = "O login deve ter no mínimo 4 caracteres")
+	@NotEmpty(message = "{validation.login.valid}")
+	@Size(min = 4, message = "{validation.login.min}")
 	private String login;
 	
 	private boolean ativo;	
 	
-	
-	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name="usuario_papel", joinColumns = @JoinColumn(name = "usuario_id"),inverseJoinColumns = @JoinColumn(name = "papel_id"))
+	@JoinTable(name="usuario_papel",
+			   joinColumns = @JoinColumn(name = "usuario_id"),
+			   inverseJoinColumns = @JoinColumn(name = "papel_id"))
 	private List<Papel> papeis;
 	
-	
-	
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario", 
+			  fetch = FetchType.EAGER)
+	@Valid
+	//private Endereco endereco;
 	
 	public Long getId() {
 		return id;
@@ -117,5 +124,11 @@ public class Usuario {
 	public void setPapeis(List<Papel> papeis) {
 		this.papeis = papeis;
 	}
+	/*public Endereco getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}*/
 	
 }
