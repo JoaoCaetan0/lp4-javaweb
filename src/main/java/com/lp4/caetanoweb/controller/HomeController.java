@@ -30,7 +30,7 @@ public class HomeController {
 		// internacionalização
 		String msn = message.getMessage("index.welcome", null, locale);
 		model.addAttribute("msnBemVindo", msn);
-		return "publica-index";
+		return "index";
 	}
 	
 	@RequestMapping("/login")

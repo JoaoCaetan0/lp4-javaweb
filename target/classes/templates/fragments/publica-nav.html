@@ -9,12 +9,12 @@
   <div class="alert alert-danger alert-dismissible fade show"
 					th:if="${param.error}">
 					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-					<span>Senha ou usuário inválido</span>
+					<span th:text="#{index.invalidpassword}"></span>
 				</div>
   
   
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" th:text="#{index.title}">Pedro Filmes</a>
+    <a class="navbar-brand" href="/" th:text="#{index.title}"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,37 +24,34 @@
           <a class="nav-link active" aria-current="page" href="/" th:text="#{index.home}"></a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            UsuÃ¡rios
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="#{index.users}">
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/usuario/novo">Cadastrar</a></li>
-            <li><a class="dropdown-item" href="/usuario/admin/listar">Listar</a></li>
+            <li><a class="dropdown-item" href="/usuario/novo" th:text="#{index.register}"></a></li>
+            <li><a class="dropdown-item" href="/usuario/admin/listar" th:text="#{index.list}"></a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Em desenvolvimento</a></li>
+            <li><a class="dropdown-item" href="#" th:text="#{index.underdevelopment}"></a></li>
           </ul>
           </li>
            <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Filmes
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="#{index.movies}">
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/filme/novo">Cadastrar</a></li>
-            <li><a class="dropdown-item" href="/filme/admin/listar">Listar</a></li>
+            <li><a class="dropdown-item" href="/filme/novo" th:text="#{index.register}"></a></li>
+            <li><a class="dropdown-item" href="/filme/admin/listar" th:text="#{index.list}"></a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Em desenvolvimento</a></li>
+            <li><a class="dropdown-item" href="#" th:text="#{index.underdevelopment}"></a></li>
           </ul>
           </li>
           
           <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Idiomas
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" th:text="#{index.lang}">
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="/filme/novo">Português</a></li>
-            <li><a class="dropdown-item" href="/filme/admin/listar">Inglês</a></li>
+            <li><a class="dropdown-item" href="/?locale=pt_BR" th:text="#{index.lang.pt}"></a></li>
+            <li><a class="dropdown-item" href="/?locale=en_US" th:text="#{index.lang.eng}"></a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Em desenvolvimento</a></li>
+            <li><a class="dropdown-item" href="#" th:text="#{index.underdevelopment}"></a></li>
           </ul>
           </li>
           
