@@ -67,9 +67,10 @@ public class Usuario {
 	
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "usuario", 
 			  fetch = FetchType.EAGER)
-	@Valid
+	//@Valid
 	//private Endereco endereco;
 	
+
 	public Long getId() {
 		return id;
 	}
@@ -123,6 +124,31 @@ public class Usuario {
 	}
 	public void setPapeis(List<Papel> papeis) {
 		this.papeis = papeis;
+	}	
+	public Usuario(Usuario usuario) {
+		super();
+		this.nome = usuario.getNome();
+		this.login = usuario.getLogin();
+		this.cpf = usuario.getCpf();
+		this.email = usuario.getEmail();
+		this.dataNascimento = usuario.getDataNascimento();
+		this.password = usuario.getPassword();
+		this.ativo = usuario.isAtivo();
+		this.papeis = usuario.getPapeis();
+		
+	}
+	
+	public Usuario(String nome, String login, String cpf, String email, Date nascimento, String password, Boolean ativo, List<Papel> papel) {
+		super();
+		this.nome = nome;
+		this.login = login;
+		this.cpf = cpf;
+		this.email = email;
+		this.dataNascimento = nascimento;
+		this.password = password;
+		this.ativo = ativo;
+
+		
 	}
 	/*public Endereco getEndereco() {
 		return endereco;
@@ -130,5 +156,9 @@ public class Usuario {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}*/
+	public Usuario() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 }

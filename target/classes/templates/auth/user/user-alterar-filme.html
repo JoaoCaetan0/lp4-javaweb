@@ -23,11 +23,11 @@
 <div class="container">
   <div class="row">  	
     <div class="col">
-    	<h2>Alterar filme</h2> 
+    	<h2 th:text="#{movies.update}"></h2> 
 		<form th:action="@{/filme/editar/{id}(id=${filme.id})}" th:object="${filme}" method="post">
 			  
 			<div class="row mb-3">
-			    <label class="col-sm-2 col-form-label">Nome:</label>
+			    <label class="col-sm-2 col-form-label" th:text="#{movies.name}"></label>
 			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{nome}"> 
 			    </div>
@@ -37,7 +37,7 @@
 			</div>
 			
 			<div class="row mb-3">
-			    <label class="col-sm-2 col-form-label">Pontuacao:</label>
+			    <label class="col-sm-2 col-form-label" th:text="#{movies.score}"></label>
 			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{pontuacaoCritica}"> 
 			    </div>
@@ -48,7 +48,7 @@
 			
 			
 			<div class="row mb-3">
-			    <label class="col-sm-2 col-form-label">Lançamento:</label>
+			    <label class="col-sm-2 col-form-label" th:text="#{movies.releasedate}"></label>
 			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{dataLancamento}"> 
 			    </div>
@@ -59,7 +59,7 @@
 			
 			
 			<div class="row mb-3">
-			    <label class="col-sm-2 col-form-label">Duração:</label>
+			    <label class="col-sm-2 col-form-label" th:text="#{movies.duration}"></label>
 			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{duracaoFilme}"> 
 			    </div>
@@ -69,7 +69,7 @@
 			</div>		
 			
 			<div class="row mb-3">
-			    <label class="col-sm-2 col-form-label">Capa:</label>
+			    <label class="col-sm-2 col-form-label" th:text="#{movies.cover}"></label>
 			    <div class="col-sm-5">
 			    	<input class="form-control" type="text" th:field="*{linkImg}"> 
 			    </div>
@@ -78,7 +78,7 @@
 			    </div>
 			</div>		
 			
-			<input  class="btn btn-primary" type="submit" value="Alterar"/>
+			<input  class="btn btn-primary" type="submit" th:value="#{movies.save}"/>
 		</form>
     </div>
 </div>

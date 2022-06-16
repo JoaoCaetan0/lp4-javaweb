@@ -36,6 +36,13 @@ h1, h2, th, td, span, label {
 	text-shadow: 0px 10px 10px black;
 }
 
+h3 {
+	font-weight: bold !important;
+	font-family: "Poppins", sans-serif !important;
+	color:red !important;
+	text-shadow: 0px 10px 10px black;
+}
+
 
 p {
 	font-family: "Montserrat", sans-serif !important;
